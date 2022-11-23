@@ -9,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @RestController
 @RequestMapping("/categorias")
@@ -20,6 +21,11 @@ public class CategoriaController {
     @GetMapping("/{id}")
     public CategoriaDto buscaCategoria (@PathVariable Integer id){
         return categoriaService.getCategoria(id);
+    }
+
+    @GetMapping()
+    public List<CategoriaDto> listaCategorias (){
+        return categoriaService.getCategorias();
     }
 
     @PostMapping
