@@ -46,8 +46,9 @@ public class PopulaDados {
     @Autowired
     PagamentoRepository pagamentoRepository;
 
+// Tirar comentário quando for rodar a primeira vez com o banco
 
-    @PostConstruct
+  /*  @PostConstruct
     public void cadastrar() throws ParseException {
 
         Categoria cat1 = new Categoria(null, "Alimento");
@@ -138,5 +139,5 @@ public class PopulaDados {
         servicoRepository.saveAll(Arrays.asList(srv1, srv2, srv3));
         pagamentoRepository.saveAll(Arrays.asList(pgt1, pgt2, pgt3));
 
-    }
+    }*/
 }
