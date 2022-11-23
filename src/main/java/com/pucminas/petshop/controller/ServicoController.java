@@ -36,5 +36,3 @@ public class ServicoController {
     public void deleteServico (@PathVariable Integer id){
         service.deletaServico(id);
     }
-
-}
