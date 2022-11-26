@@ -15,5 +15,33 @@ import java.util.List;
 @RequestMapping("/categorias")
 public class CategoriaController {
 
+    @Autowired
+    private CategoriaService categoriaService;
 
+    @GetMapping("/{id}")
+    public CategoriaDto buscaCategoria (@PathVariable Integer id){
+        return categoriaService.getCategoria(id);
+    }
+
+    @GetMapping()
+    public List<CategoriaDto> listaCategorias (){
+        return categoriaService.getCategorias();
+    }
+
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    public CategoriaDto createCategoria (@RequestBody @Valid CategoriaDto categoriaDto){
+        return categoriaService.criaCategoria(categoriaDto);
+    }
+
+    @PutMapping("/{id}")
+    public CategoriaDto updateCategoria (@PathVariable Integer id, @RequestBody @Valid CategoriaDto categoriaDto){
+        return categoriaService.atualizaCategoria(id, categoriaDto);
+    }
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public void deleteCategoria (@PathVariable Integer id){
+        categoriaService.deletaCategoria(id);
+    }
 }
