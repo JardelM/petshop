@@ -13,7 +13,5 @@ public class PetDto {
 
     private Integer id;
     private String nome;
-    private Especie especie;
-    private Raca raca;
     private Integer idade;
 }
