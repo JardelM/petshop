@@ -15,10 +15,6 @@ import java.util.List;
 @RequestMapping("/pessoas")
 public class PessoaController {
 
-<<<<<<< HEAD
-=======
-    
->>>>>>> 00f7b7b901ca9c98eddbd0db8c5dfe9f642ae0c9
     @Autowired
     private PessoaService pessoaService;
 
@@ -48,10 +44,6 @@ public class PessoaController {
     public void deletePessoa (@PathVariable Integer id){
         pessoaService.deletaPessoa(id);
     }
-<<<<<<< HEAD
-
-=======
->>>>>>> 00f7b7b901ca9c98eddbd0db8c5dfe9f642ae0c9
 
 
 }
