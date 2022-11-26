@@ -13,5 +13,36 @@ import java.util.Optional;
 @Service
 public class ServicoServiceImple implements ServicoService {
 
-
+    @Autowired
+    ServicoRepository servicoRepository;
+    @Autowired
+    private ModelMapper modelMapper;
+    @Override
+    public ServicoDto getServico(Integer id) {
+        verificaExistenciaId(id);
+        Optional<Servico> categoria = servicoRepository.findById(id);
+        return modelMapper.map(categoria.get(), ServicoDto.class);
+    }
+    @Override
+    public ServicoDto criaServico(ServicoDto servicoDto) {
+        Servico servico = modelMapper.map(servicoDto, Servico.class);
+        servicoRepository.save(servico);
+        return modelMapper.map(servico, ServicoDto.class);
+    }
+    @Override
+    public ServicoDto atualizaServico(Integer id, ServicoDto servicoDto) {
+        verificaExistenciaId(id);
+        Servico servico = modelMapper.map(servicoDto, Servico.class);
+        servico.setId(id);
+        servicoRepository.save(servico);
+        return modelMapper.map(servico, ServicoDto.class);
+    }
+    @Override
+    public void deletaServico(Integer id) {
+        verificaExistenciaId(id);
+        servicoRepository.deleteById(id);
+    }
+    private void verificaExistenciaId(Integer id) {
+        servicoRepository.findById(id).orElseThrow(()-> new IdNotFoundException(id));
+    }
 }
