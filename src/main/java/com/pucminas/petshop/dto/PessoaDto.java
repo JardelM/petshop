@@ -1,6 +1,5 @@
 package com.pucminas.petshop.dto;
 
-import com.pucminas.petshop.entity.Endereco;
 import lombok.*;
 
 import java.util.HashSet;
