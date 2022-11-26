@@ -15,35 +15,7 @@ import java.util.List;
 @RequestMapping("/pessoas")
 public class PessoaController {
 
-    @Autowired
-    private PessoaService pessoaService;
-
-    @GetMapping("/{id}")
-    public PessoaDto buscaPessoa (@PathVariable Integer id){
-        return pessoaService.getPessoa(id);
-    }
-
-    @GetMapping
-    public List<PessoaDto> buscaTodos(){
-        return pessoaService.getPessoas();
-    }
-
-    @PostMapping
-    @ResponseStatus(HttpStatus.CREATED)
-    public PessoaDto createPessoa (@RequestBody @Valid PessoaDto pessoaDto){
-        return pessoaService.criaPessoa(pessoaDto);
-    }
-
-    @PutMapping("/{id}")
-    public PessoaDto updatePessoa (@PathVariable Integer id, @RequestBody @Valid PessoaDto pessoaDto){
-        return pessoaService.atualizaPessoa(id, pessoaDto);
-    }
-
-    @DeleteMapping("/{id}")
-    @ResponseStatus(HttpStatus.OK)
-    public void deletePessoa (@PathVariable Integer id){
-        pessoaService.deletaPessoa(id);
-    }
+    
 
 
 
